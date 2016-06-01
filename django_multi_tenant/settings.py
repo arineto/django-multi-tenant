@@ -39,7 +39,7 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'apps.multi_tenant',
+    'multi_tenant',
 ]
 
 PROJECT_APPS = []
@@ -55,6 +55,8 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'multi_tenant.middleware.SubdomainMiddleware',
+    'multi_tenant.middleware.TenantMiddleware',
 ]
 
 ROOT_URLCONF = 'django_multi_tenant.urls'
