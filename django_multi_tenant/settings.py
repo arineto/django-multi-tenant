@@ -42,7 +42,9 @@ THIRD_PARTY_APPS = [
     'multi_tenant',
 ]
 
-PROJECT_APPS = []
+PROJECT_APPS = [
+    'example'
+]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 

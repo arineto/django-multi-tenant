@@ -1,14 +1,6 @@
 from django.db import models
 
 
-class TenantMixin(object):
-    """
-    This is a mixin to provide a shared database aproach to the project tables.
-    """
-
-    tenant = models.ForeignKey('Tenant')
-
-
 class Tenant(models.Model):
     """
     This model represents a tenant instance.
@@ -31,3 +23,15 @@ class Tenant(models.Model):
     def deactivate(self):
         self.active_until = None
         self.save()
+
+
+class TenantModel(models.Model):
+    """
+    This is a abstract model to provide a shared database aproach to the
+    project tables.
+    """
+
+    tenant = models.ForeignKey(Tenant, related_name='tenant')
+
+    class Meta:
+        abstract = True
