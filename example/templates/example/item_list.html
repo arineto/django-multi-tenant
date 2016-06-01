@@ -1,20 +1,29 @@
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Code</th>
-      <th>Tenant</th>
-      <th>Created At</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for object in object_list %}
-      <tr>
-        <td>{{ object.name }}</td>
-        <td>{{ object.code }}</td>
-        <td>{{ object.tenant }}</td>
-        <td>{{ object.created_at }}</td>
-      </tr>
-    {% endfor %}
-  </tbody>
-</table>
+{% extends 'example/base.html' %}
+
+{% block content %}
+	<div class="row">
+		<h3>Items List</h3>
+		<br>
+		<table class="table table-striped">
+			<thead>
+				<th>Name</th>
+	      <th>Code</th>
+	      <th>Tenant</th>
+	      <th>Created At</th>
+			</thead>
+			<tbody>
+				{% for object in object_list %}
+					<tr>
+						<td>{{ object.name }}</td>
+						<td>{{ object.code }}</td>
+						<td>{{ object.tenant }}</td>
+						<td>{{ object.created_at }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+	{% include 'example/paginator.html' %}
+
+{% endblock %}

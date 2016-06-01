@@ -5,6 +5,7 @@ from .models import Item
 
 class ItemListView(ListView):
     model = Item
+    paginate_by = 20
 
 
 class ItemCreateView(CreateView):

@@ -1,0 +1,17 @@
+<div class="row">
+	<div class="pagination" style="width:100%; text-align:center;">
+	    <span class="step-links">
+	        {% if page_obj.has_previous %}
+	            <a href="?page={{ page_obj.previous_page_number }}"><span class="glyphicon glyphicon-arrow-left"></span></a>
+	        {% endif %}
+
+	        <span class="current">
+	            Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+	        </span>
+
+	        {% if page_obj.has_next %}
+	            <a href="?page={{ page_obj.next_page_number }}"><span class="glyphicon glyphicon-arrow-right"></span></a>
+	        {% endif %}
+	    </span>
+	</div>
+</div>
