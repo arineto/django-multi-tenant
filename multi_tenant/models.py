@@ -1,4 +1,5 @@
 from django.db import models
+from .managers import TenantModelManager
 
 
 class Tenant(models.Model):
@@ -32,6 +33,7 @@ class TenantModel(models.Model):
     """
 
     tenant = models.ForeignKey(Tenant, related_name='tenant')
+    objects = TenantModelManager()
 
     class Meta:
         abstract = True
