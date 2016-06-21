@@ -2,6 +2,18 @@ from django.db import models
 from .managers import TenantModelManager
 
 
+class Theme(models.Model):
+    """
+    This model stores all the available themes.
+    """
+
+    name = models.CharField(max_length=100, unique=True)
+    stylesheets = models.FileField(upload_to='themes/')
+
+    def __str__(self):
+        return self.name
+
+
 class Tenant(models.Model):
     """
     This model represents a tenant instance.
@@ -10,6 +22,7 @@ class Tenant(models.Model):
     name = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     active_until = models.DateField(null=True, blank=True)
+    theme = models.ForeignKey(Theme, null=True, blank=True)
 
     def __str__(self):
         return self.name

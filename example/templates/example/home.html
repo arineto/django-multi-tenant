@@ -15,6 +15,11 @@
     <ul>
       <li><p><a href="{% url 'example:subdomain' %}">Nome do subdomio e Tenant injetados no objeto Request e no Contexto.</a></p></li>
       <li><p><a href="{% url 'example:list_items' %}">Itens filtrados por Tenant</a></p></li>
+			{% if tenant %}
+      	<li><p><a href="{% url 'example:tenant_theme' tenant.pk %}">Customização de tema por Tenant</a></p></li>
+			{% else %}
+				<li><p><a href="">Customização de tema por Tenant</a></p></li>
+			{% endif %}
     </ul>
 	</div>
 {% endblock %}
