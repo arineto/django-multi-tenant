@@ -1,0 +1,13 @@
+{% extends 'example/base.html' %}
+
+{% load tags %}
+
+{% block content %}
+	<div class="row">
+		<h3>Nome do subdomio e Tenant injetados no objeto Request e no Contexto.</h3>
+    <br>
+		<p><b>Subdomínio: </b>{{ subdomain }} ({{ subdomain|get_type }})</p>
+    <br>
+    <p><b>Tenant: </b>{{ tenant }} ({{ tenant|get_type }})</p>
+	</div>
+{% endblock %}
