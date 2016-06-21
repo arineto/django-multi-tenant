@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from .managers import TenantModelManager
 
@@ -23,6 +24,7 @@ class Tenant(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     active_until = models.DateField(null=True, blank=True)
     theme = models.ForeignKey(Theme, null=True, blank=True)
+    users = models.ManyToManyField(User)
 
     def __str__(self):
         return self.name
@@ -37,6 +39,11 @@ class Tenant(models.Model):
     def deactivate(self):
         self.active_until = None
         self.save()
+
+    def has_user(self, username):
+        if username in self.users.all().values_list('username', flat=True):
+            return True
+        return False
 
 
 class TenantModel(models.Model):
