@@ -1,8 +1,8 @@
-from django.forms import ModelForm
+from django import forms
 from multi_tenant.models import Tenant
 
 
-class TenantThemeForm(ModelForm):
+class TenantThemeForm(forms.ModelForm):
 
     class Meta:
         model = Tenant

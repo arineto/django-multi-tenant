@@ -40,11 +40,6 @@ class Tenant(models.Model):
         self.active_until = None
         self.save()
 
-    def has_user(self, username):
-        if username in self.users.all().values_list('username', flat=True):
-            return True
-        return False
-
 
 class TenantModel(models.Model):
     """
