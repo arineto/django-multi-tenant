@@ -11,6 +11,7 @@ from django.views.generic.edit import CreateView
 from django.views.generic.edit import UpdateView
 from django.core.urlresolvers import reverse_lazy
 from multi_tenant.exceptions import IncorrectTenantException
+from multi_tenant.auth import TenantRequiredMixin
 from multi_tenant.auth import belongs_to_tenant
 from multi_tenant.models import Tenant
 from .models import Item
@@ -25,12 +26,16 @@ class SubdomainView(TemplateView):
     template_name = 'example/subdomain.html'
 
 
-class ItemListView(ListView):
+class SimpleItemListView(ListView):
     model = Item
     paginate_by = 20
 
     def get_queryset(self):
         return Item.objects.by_tenant(self.request.tenant)
+
+
+class RestrictedItemListView(TenantRequiredMixin, SimpleItemListView):
+    pass
 
 
 class ThemeUpdateView(UpdateView):
@@ -79,9 +84,3 @@ class LogoutView(RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         logout(self.request)
         return reverse_lazy('example:login')
-
-
-class ItemCreateView(CreateView):
-    model = Item
-    fields = ['name', 'code']
-    success_url = 'example:list_item'
