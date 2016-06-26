@@ -12,7 +12,8 @@
 
 	<form id="form" method="post" action="" class="form-horizontal" role="form">
 		{% csrf_token %}
-    <h3>Create Item</h3>
+    <h3>Customização de tema por Tenant ({{ tenant }})</h3>
+    <br>
 		{% for field in form %}
 		  <div class="form-group {% if field.errors %}has-error{% endif %}">
 		    <label class="col-sm-2 control-label">{{ field.label }}:</label>

@@ -10,7 +10,7 @@
 {% block content %}
   <form id="form" method="post" action="" class="form-horizontal" role="form">
 		{% csrf_token %}
-    <h3>Formlário de Login</h3>
+    <h3>Formlário de Login ({{ subdomain }})</h3>
     <br>
     <p style="font-size:16px"><b>Usuário Atenticado: </b>{{ user }} {% if user.is_authenticated %}(<a href="{% url 'example:logout' %}">Logout</a>){% endif %}</p>
     <br>
