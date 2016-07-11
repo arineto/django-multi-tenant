@@ -5,8 +5,16 @@ Esse projeto está sendo desenvolvido como produto do Trabalho de Graduação do
 para o curso de Ciência da Computação na Universidade Federal de Pernambuco.
 
 **Aluno:** José de Arimatea Rocha Neto
+
 **Orientador:** Vinícius Cardoso Garcia
-**Trabalho:** Uma biblioteca Multi-Tenant para o framework Django ([link](https://www.overleaf.com/read/pqrgmvswqnrd))
+
+**Trabalho:** Uma biblioteca Multi-Tenant para o framework Django (link_)
+
+
+**OBS:** Um exemplo do uso da biblioteca pode ser encontrado aqui_.
+
+.. _link: https://www.overleaf.com/read/pqrgmvswqnrd/
+.. _aqui: https://github.com/arineto/django-multi-tenant-example/
 
 Instruções de Instalação
 ------------------------
